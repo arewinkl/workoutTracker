@@ -1,8 +1,8 @@
 let db = require("../models")
 
-//get all
-module.exports = function(app) {
 
+module.exports = function(app) {
+    //get all
     app.get("/api/workouts", function(req, res){
         db.Workout.find({})
         .then(function(dbWorkout){
