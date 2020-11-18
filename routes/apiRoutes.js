@@ -2,6 +2,7 @@ let db = require("../models")
 
 //get all
 module.exports = function(app) {
+    
     app.get("/api/workouts", function(req, res){
         db.Workout.find({})
         .then(function(dbData){
