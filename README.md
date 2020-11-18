@@ -64,3 +64,11 @@ This assignment did present some unique challenges and ones that I have had with
 ## Screenshot of errors
 
 ![screen shot](assets/workout-errors.png)
+
+
+
+## GIF
+
+  *Here is a Gif demonstrating how the workout tracker works and what the options are the user has to choose from.
+
+![Gif](assets/workout-tracker.gif)
