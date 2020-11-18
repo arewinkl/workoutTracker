@@ -13,7 +13,7 @@ module.exports = function(app) {
     });
 
     app.put("/api/workouts/:id", function(req, res){
-        db.Workout.update({id: req.params.id}, {$push: {exercises: req.body}})
+        db.Workout.findOneAndUpdate({"_id":req.params.id}, {$push: {"exercise": req.body}})
         .then(function(dbData){
             res.json(dbData);
         })
