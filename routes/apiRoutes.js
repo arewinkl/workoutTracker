@@ -5,8 +5,8 @@ module.exports = function(app) {
 
     app.get("/api/workouts", function(req, res){
         db.Workout.find({})
-        .then(function(dbData){
-            res.json(dbData);
+        .then(function(dbWorkout){
+            res.json(dbWorkout);
         })
         .catch(function(err){
             res.json(err);
@@ -18,8 +18,8 @@ module.exports = function(app) {
             day: new Date().setDate(new Date().getDate()),
         })
 
-        .then(function(dbData){
-            res.json(dbData);
+        .then(function(dbWorkout){
+            res.json(dbWorkout);
         })
         .catch(function(err){
             res.json(err);
@@ -28,7 +28,7 @@ module.exports = function(app) {
 
     // route to update the workout entry
     app.put("/api/workouts/:id", function(req, res){
-        db.Workout.findOneAndUpdate({_id: req.params.id}, {$push: {exercises: req.body},},
+        db.Workout.findOneAndUpdate({_id: req.params.id,}, {$push: {exercises: req.body,},},
             (error, data) => {
                 if (error) {
                     res.json(error);
@@ -43,8 +43,8 @@ module.exports = function(app) {
     //make route with a range
     app.get("/api/workouts/range", function(req, res){
         db.Workout.find({})
-        .then(function(dbData){
-            res.json(dbData);
+        .then(function(dbWorkout){
+            res.json(dbWorkout);
         })
         .catch(function(err){
             res.json(err);
