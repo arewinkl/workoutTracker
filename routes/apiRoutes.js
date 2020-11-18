@@ -2,7 +2,7 @@ let db = require("../models")
 
 //get all
 module.exports = function(app) {
-    
+
     app.get("/api/workouts", function(req, res){
         db.Workout.find({})
         .then(function(dbData){
@@ -14,8 +14,11 @@ module.exports = function(app) {
     });
 
     app.post("/api/workouts", function(req, res){
-        db.Workout.create(req.body)
-        .then(function(req, res){
+        db.Workout.create({
+            day: new Date().setDate(new Date().getDate()),
+        })
+
+        .then(function(dbData){
             res.json(dbData);
         })
         .catch(function(err){
