@@ -28,7 +28,7 @@ module.exports = function(app) {
 
     // route to update the workout entry
     app.put("/api/workouts/:id", function(req, res){
-        db.Workout.findOneAndUpdate({_id: req.params.id,}, {$push: {exercises: req.body,},},
+        db.Workout.update({_id: req.params.id,}, {$push: {exercises: req.body,},},
             (error, data) => {
                 if (error) {
                     res.json(error);
