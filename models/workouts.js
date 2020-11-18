@@ -40,6 +40,11 @@ const WorkoutSchema = new Schema( {
     ]
 
 });
+
+
+const Workout = mongoose.model("Workout", WorkoutSchema);
+module.exports = Workout;
+
 // },
 
 // //required for virtuals
@@ -60,7 +65,3 @@ const WorkoutSchema = new Schema( {
 //     }
 //     return total
 // });
-
-
-const Workout = mongoose.model("Workout", WorkoutSchema);
-module.exports = Workout;
