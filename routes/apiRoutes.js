@@ -13,6 +13,7 @@ module.exports = function(app) {
         });
     });
 
+    // post route for the data
     app.post("/api/workouts", function(req, res){
         db.Workout.create({
             day: new Date().setDate(new Date().getDate()),

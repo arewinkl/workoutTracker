@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-//path for connection
+//path for connection updated for the necessary db
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/fitnesstracker',
   {
@@ -28,6 +28,11 @@ mongoose.connect(
     useFindAndModify: false
   }
 );
+
+
+//! these routes do not work and wont work
+//!app.use(require("./routes/apiRoutes"));
+//!app.use(require("./routes/htmlRoutes"));
 
 //routes
 require("./routes/apiRoutes")(app);
