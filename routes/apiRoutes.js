@@ -33,6 +33,7 @@ module.exports = function(app) {
         });
     });
 
+    //make route with a range
     app.get("/api/workouts/range", function(req, res){
         db.Workout.find({})
         .then(function(req, res){
