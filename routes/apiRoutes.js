@@ -12,6 +12,16 @@ module.exports = function(app) {
         });
     });
 
+    app.post("/api/workouts", function(req, res){
+        db.Workout.create(req.body)
+        .then(function(req, res){
+            res.json(dbData);
+        })
+        .catch(function(err){
+            res.json(err);
+        });
+    });
+
     // route to update the workout entry
     app.put("/api/workouts/:id", function(req, res){
         db.Workout.findOneAndUpdate({_id: req.params.id}, {$push: {exercises: req.body},},
@@ -24,16 +34,6 @@ module.exports = function(app) {
             });
        
         
-    });
-
-    app.post("/api/workouts", function(req, res){
-        db.Workout.create(req.body)
-        .then(function(req, res){
-            res.json(dbData);
-        })
-        .catch(function(err){
-            res.json(err);
-        });
     });
 
     //make route with a range
